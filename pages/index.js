@@ -1,118 +1,151 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+import * as React from 'react';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import ProTip from '../src/ProTip';
+import Link from '../src/Link';
+import Copyright from '../src/Copyright';
+
+import CssBaseline from '@mui/material/CssBaseline';
+import Grid from '@mui/material/Grid';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import XIcon from '@mui/icons-material/X';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Header from './header';
+import MainFeaturedPost from './mainFeaturedPost';
+import FeaturedPost from './featuredPost';
+import Main from './main';
+import Sidebar from './sidebar';
+import ReactDOM from 'react-dom';
+import Footer from './footer';
+import rootComponent from '../pages';
+// import post1 from './blog-post.1.md';
+// import post2 from './blog-post.2.md';
+// import post3 from './blog-post.3.md';
+
+// import post1 from './blogp1';
+// import post2 from './blogp2.js';
+// import post3 from './blogp3';
+
+const sections = [
+  // { title: 'Technology', url: '#' },
+  // { title: 'Design', url: '#' },
+  // { title: 'Culture', url: '#' },
+  // { title: 'Business', url: '#' },
+  // { title: 'Politics', url: '#' },
+  // { title: 'Opinion', url: '#' },
+  // { title: 'Science', url: '#' },
+  // { title: 'Health', url: '#' },
+  // { title: 'Style', url: '#' },
+  // { title: 'Travel', url: '#' },
+];
+
+const mainFeaturedPost = {
+  title: 'Discover Global University',
+  description:
+    'Explore the unique features and offerings of Global University. Learn about academic programs, campus life, and more.',
+  image: 'https://source.unsplash.com/random?university',
+  imageText: 'Global University campus image',
+  linkText: 'Explore Global University',
+};
+
+
+const featuredPosts = [
+  {
+    title: 'Global University Events',
+    date: 'February 5, 2024',
+    description:
+      'Stay updated on exciting events happening at Global University. From academic conferences to cultural celebrations, there is always something happening on campus.',
+    image: 'https://source.unsplash.com/random?events',
+    imageLabel: 'Global University Events',
+  },
+  {
+    title: 'Innovation and Research Showcase',
+    date: 'February 1, 2024',
+    description:
+      'Explore the groundbreaking research and innovation at Global University. Our faculty and students are at the forefront of discovery and technological advancements.',
+    image: 'https://source.unsplash.com/random?research',
+    imageLabel: 'Research at Global University',
+  },
+  {
+    title: 'Student Life at Global University',
+    date: 'January 25, 2024',
+    description:
+      'Get a glimpse into the vibrant student life at Global University. From clubs and organizations to sports and cultural activities, our campus is a hub of diverse experiences.',
+    image: 'https://source.unsplash.com/random?studentlife',
+    imageLabel: 'Student Life at Global University',
+  },
+  // Add more customized featured posts as needed
+];
+
+// const posts = [post1, post2, post3];
+
+const sidebar = {
+  title: 'About Global University',
+  description:
+    'Welcome to Global University! We strive for excellence in education and provide a diverse and enriching learning environment. Our commitment is to foster intellectual growth and prepare students for success in their chosen fields. Explore the world of opportunities at Global University.',
+  archives: [
+    { title: 'March 2020', url: '#' },
+  
+  ],
+  social: [
+    { name: 'GitHub', icon: GitHubIcon },
+    { name: 'X', icon: XIcon },
+    { name: 'LinkedIn', icon: LinkedInIcon },
+    { name: 'Facebook', icon: FacebookIcon },
+  ],
+};
+
+
+
+
+// Create a dark theme
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
+
+export default function Index() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+<ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+      <Container maxWidth="lg">
+        {/* <Header title="Blog"/> */}
+        <Header title="Key to Success" sections={sections} />
+
+        <main>
+          <MainFeaturedPost post={mainFeaturedPost} />
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+               <FeaturedPost key={post.title} post={post} /> 
+            ))} 
+          </Grid>
+          <Grid container spacing={5} sx={{ mt: 3 }}>
+            {/* <Main title="From the firehose" posts={posts} /> */}
+            {/* <Main title="From the firehose" posts={posts} /> */}
+
+            <Sidebar
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
             />
-          </a>
-        </div>
-      </div>
+          </Grid>
+        </main>
+      </Container>
+      <Footer
+  title="Contact Global University"
+  description="Get in touch with us to learn more about Global University and its offerings. We're here to answer your questions."
+/>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </ThemeProvider>
   );
+  
 }
+
