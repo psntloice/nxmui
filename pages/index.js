@@ -15,13 +15,13 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
+import Header from './Header.js';
+import MainFeaturedPost from './MainFeaturedPost.js';
+import FeaturedPost from './FeaturedPost.js';
 // import Main from './Main';
-import Sidebar from './Sidebar';
+import Sidebar from './Sidebar.js';
 import ReactDOM from 'react-dom';
-import Footer from './Footer';
+import Footer from './Footer.js';
 import rootComponent from '../pages';
 
 
