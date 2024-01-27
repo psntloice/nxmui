@@ -23,13 +23,7 @@ import Sidebar from './sidebar';
 import ReactDOM from 'react-dom';
 import Footer from './footer';
 import rootComponent from '../pages';
-// import post1 from './blog-post.1.md';
-// import post2 from './blog-post.2.md';
-// import post3 from './blog-post.3.md';
 
-// import post1 from './blogp1';
-// import post2 from './blogp2.js';
-// import post3 from './blogp3';
 
 const sections = [
   // { title: 'Technology', url: '#' },
@@ -122,9 +116,9 @@ export default function Index() {
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
+            {/* {featuredPosts.map((post) => (
                <FeaturedPost key={post.title} post={post} /> 
-            ))} 
+            ))}  */}
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             {/* <Main title="From the firehose" posts={posts} /> */}

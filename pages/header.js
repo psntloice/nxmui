@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
+// import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
@@ -24,9 +24,9 @@ function Header(props) {
         >
           {title}
         </Typography>
-        <IconButton>
+        {/* <IconButton> */}
           {/* <SearchIcon /> */}
-        </IconButton>
+        {/* </IconButton> */}
         <Button variant="outlined" size="small">
           Sign up
         </Button>
@@ -36,7 +36,7 @@ function Header(props) {
         variant="dense"
         sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
       >
-        {sections.map((section) => (
+        {/* {sections.map((section) => (
           <Link
             color="inherit"
             noWrap
@@ -47,7 +47,7 @@ function Header(props) {
           >
             {section.title}
           </Link>
-        ))}
+        ))} */}
       </Toolbar>
     </React.Fragment>
   );
