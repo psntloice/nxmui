@@ -15,18 +15,18 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './header';
-import MainFeaturedPost from './mainFeaturedPost';
-import FeaturedPost from './featuredPost';
-import Main from './main';
-import Sidebar from './sidebar';
+import Header from './Header';
+import MainFeaturedPost from './MainFeaturedPost';
+import FeaturedPost from './FeaturedPost';
+// import Main from './Main';
+import Sidebar from './Sidebar';
 import ReactDOM from 'react-dom';
-import Footer from './footer';
+import Footer from './Footer';
 import rootComponent from '../pages';
 
 
 const sections = [
-  // { title: 'Technology', url: '#' },
+  { title: 'Technology', url: '#' },
   // { title: 'Design', url: '#' },
   // { title: 'Culture', url: '#' },
   // { title: 'Business', url: '#' },
@@ -116,9 +116,9 @@ export default function Index() {
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
-            {/* {featuredPosts.map((post) => (
+            {featuredPosts.map((post) => (
                <FeaturedPost key={post.title} post={post} /> 
-            ))}  */}
+            ))} 
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             {/* <Main title="From the firehose" posts={posts} /> */}
