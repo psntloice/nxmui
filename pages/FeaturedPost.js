@@ -1,4 +1,5 @@
-import * as React from 'react';
+// import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -49,5 +50,17 @@ FeaturedPost.propTypes = {
     title: PropTypes.string.isRequired,
   }).isRequired,
 };
+
+// Set default props to avoid 'undefined' issues
+FeaturedPost.defaultProps = {
+  post: {
+    title: 'Default Title',
+    date: 'Default Date',
+    description: 'Default Description',
+    image: 'https://source.unsplash.com/random?',
+    imageLabel: 'Default Image Label',
+  },
+};
+
 
 export default FeaturedPost;

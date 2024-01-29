@@ -63,4 +63,16 @@ Sidebar.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
+// / Set default props to avoid 'undefined' issues
+Sidebar.defaultProps = {
+  archives: [
+    { title: 'Default Archive Title', url: '#' },
+    // Add more default archives as needed
+  ],
+  social: [
+    { icon: () => <span>Default Icon</span>, name: 'Default Social Network' },
+    // Add more default social networks as needed
+  ],
+};
+
 export default Sidebar;

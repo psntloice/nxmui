@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
+// import IconButton from '@mui/material/IconButton';
 // import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
@@ -36,7 +36,7 @@ function Header(props) {
         variant="dense"
         sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
       >
-        {sections.map((section) => (
+        {/* {sections.map((section) => (
           <Link
             color="inherit"
             noWrap
@@ -47,19 +47,21 @@ function Header(props) {
           >
             {section.title}
           </Link>
-        ))}
+        ))} */}
+        {sections}
       </Toolbar>
     </React.Fragment>
   );
 }
 
 Header.propTypes = {
-  sections: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+  // sections: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     title: PropTypes.string.isRequired,
+  //     url: PropTypes.string.isRequired,
+  //   }),
+  // ).isRequired,
+  sections: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 

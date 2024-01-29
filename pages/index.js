@@ -1,12 +1,12 @@
-
-
-import * as React from 'react';
+// import * as React from 'react';
+import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ProTip from '../src/ProTip';
 import Link from '../src/Link';
 import Copyright from '../src/Copyright';
+
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
@@ -25,18 +25,18 @@ import Footer from './Footer.js';
 import rootComponent from '../pages';
 
 
-const sections = [
-  { title: 'Technology', url: '#' },
-  // { title: 'Design', url: '#' },
-  // { title: 'Culture', url: '#' },
-  // { title: 'Business', url: '#' },
-  // { title: 'Politics', url: '#' },
-  // { title: 'Opinion', url: '#' },
-  // { title: 'Science', url: '#' },
-  // { title: 'Health', url: '#' },
-  // { title: 'Style', url: '#' },
-  // { title: 'Travel', url: '#' },
-];
+// const sections = [
+//   { title: 'Technology', url: '#' },
+//   // { title: 'Design', url: '#' },
+//   // { title: 'Culture', url: '#' },
+//   // { title: 'Business', url: '#' },
+//   // { title: 'Politics', url: '#' },
+//   // { title: 'Opinion', url: '#' },
+//   // { title: 'Science', url: '#' },
+//   // { title: 'Health', url: '#' },
+//   // { title: 'Style', url: '#' },
+//   // { title: 'Travel', url: '#' },
+// ];
 
 const mainFeaturedPost = {
   title: 'Discover Global University',
@@ -111,7 +111,8 @@ export default function Index() {
         <CssBaseline />
       <Container maxWidth="lg">
         {/* <Header title="Blog"/> */}
-        <Header title="Key to Success" sections={sections} />
+        {/* <Header title="Key to Success" sections={sections} /> */}
+        <Header title="Key to Success" sections="Learn with us" />
 
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />

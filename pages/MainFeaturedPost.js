@@ -1,10 +1,14 @@
-import * as React from 'react';
+// import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+
+
+
 
 function MainFeaturedPost(props) {
   const { post } = props;
@@ -24,6 +28,7 @@ function MainFeaturedPost(props) {
     >
       {/* Increase the priority of the hero background image */}
       {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+      
       <Box
         sx={{
           position: 'absolute',
@@ -59,6 +64,8 @@ function MainFeaturedPost(props) {
   );
 }
 
+
+
 MainFeaturedPost.propTypes = {
   post: PropTypes.shape({
     description: PropTypes.string.isRequired,
@@ -67,6 +74,17 @@ MainFeaturedPost.propTypes = {
     linkText: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+// Set default props to avoid 'undefined' issues
+MainFeaturedPost.defaultProps = {
+  post: {
+    title: 'Default Title',
+    description: 'Default Description',
+    image: 'default-image-url',
+    imageText: 'Default Image Text',
+    linkText: 'Default Link Text',
+  },
 };
 
 export default MainFeaturedPost;
