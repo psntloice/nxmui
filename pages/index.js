@@ -3,11 +3,6 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ProTip from '../src/ProTip';
-import Link from '../src/Link';
-import Copyright from '../src/Copyright';
-
-
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -18,12 +13,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header.js';
 import MainFeaturedPost from './MainFeaturedPost.js';
 import FeaturedPost from './FeaturedPost.js';
-// import Main from './Main';
 import Sidebar from './Sidebar.js';
-import ReactDOM from 'react-dom';
 import Footer from './Footer.js';
-import rootComponent from '../pages';
-
 
 // const sections = [
 //   { title: 'Technology', url: '#' },
@@ -76,8 +67,6 @@ const featuredPosts = [
   // Add more customized featured posts as needed
 ];
 
-// const posts = [post1, post2, post3];
-
 const sidebar = {
   title: 'About Global University',
   description:
@@ -110,7 +99,6 @@ export default function Index() {
 <ThemeProvider theme={darkTheme}>
         <CssBaseline />
       <Container maxWidth="lg">
-        {/* <Header title="Blog"/> */}
         {/* <Header title="Key to Success" sections={sections} /> */}
         <Header title="Key to Success" sections="Learn with us" />
 
@@ -123,8 +111,6 @@ export default function Index() {
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             {/* <Main title="From the firehose" posts={posts} /> */}
-            {/* <Main title="From the firehose" posts={posts} /> */}
-
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}

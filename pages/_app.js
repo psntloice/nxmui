@@ -4,6 +4,10 @@
 //   return <Component {...pageProps} />;
 // }
 
+//customize the app component
+//define global styles and layouts
+//state management and lifecycle methods
+//customize error handling
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
