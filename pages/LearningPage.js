@@ -1,4 +1,3 @@
-// pages/learning.js
 import React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -48,7 +47,7 @@ function LearningPage() {
           }}
         >
           Courses offered
-        </Typography>lesson
+        </Typography>
 
         <Paper
           component="form"
@@ -87,10 +86,11 @@ function LearningPage() {
                     <Typography variant="body1" component="div">
                       {course.description}
                     </Typography>
-                    <Link href={`/course/${course.id}`} passHref>
-                      <Button variant="outlined" color="primary" size="small">
-                        {course.linkText}
-                      </Button>
+                    {/* <Link href={`/course/${course.id}`} passHref> */}
+                    <Link href={course.linkText.path} passHref>
+                                            <Button variant="outlined" color="primary" size="small">
+                                            {course.linkText.text}   
+                                                               </Button>
                     </Link>
                   </Grid>
                 </Grid>

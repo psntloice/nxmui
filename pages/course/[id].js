@@ -16,6 +16,7 @@ const CoursePage = ({ course }) => {
   return (
     <Layout>
       <div>
+      <img src={course.image} alt={course.imageText} style={{ width: '100%', height: 'auto' }} />
         <h1>{course.title}</h1>
         <p>{course.description}</p>
         {/* Add other course details here */}

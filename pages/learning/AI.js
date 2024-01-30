@@ -1,0 +1,46 @@
+import React from 'react';
+import Layout from '../components/Layout';
+import courses from '../../data/courses';
+
+const AILearningPage = () => {
+  const courseId = 2;
+  const course = courses.find((c) => c.id === courseId)
+  return (
+    <Layout>
+      <div>
+        <img src={course.image} alt={course.imageText} style={{ width: '100%', height: 'auto' }} />
+        <h1>{course.title}</h1>
+        <p>{course.description}</p>
+        <h2>Introduction</h2>
+        <p>
+          Artificial Intelligence (AI) is a rapidly evolving field that aims to create intelligent machines 
+          capable of performing tasks that typically require human intelligence. It encompasses various subfields,
+          including machine learning, natural language processing, and computer vision.
+        </p>
+
+        <h2>Key Topics</h2>
+        <ul>
+          <li>Machine Learning Fundamentals</li>
+          <li>Neural Networks and Deep Learning</li>
+          <li>AI in Healthcare</li>
+          <li>AI in Finance</li>
+          <li>Real-world Applications and Case Studies</li>
+        </ul>
+
+        <h2>Learning Resources</h2>
+        <p>
+          Dive into the world of AI with the following resources:
+        </p>
+        <ul>
+          <li><a href="#">Introduction to Machine Learning</a></li>
+          <li><a href="#">Deep Dive into Neural Networks</a></li>
+          <li><a href="#">AI in Healthcare: Transforming the Industry</a></li>
+          <li><a href="#">Applications of AI in Finance</a></li>
+          <li><a href="#">Case Studies: AI Success Stories</a></li>
+        </ul>     
+         </div>
+    </Layout>
+  );
+};
+
+export default AILearningPage;

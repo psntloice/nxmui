@@ -1,0 +1,46 @@
+import React from 'react';
+import Layout from '../components/Layout';
+import courses from '../../data/courses';
+
+const AugmentedRealityLearningPage = () => {
+  const courseId = 6;
+  const course = courses.find((c) => c.id === courseId)
+  return (
+    <Layout>
+      <div>
+        <img src={course.image} alt={course.imageText} style={{ width: '100%', height: 'auto' }} />
+        <h1>{course.title}</h1>
+        <p>{course.description}</p>
+        <h2>Introduction</h2>
+        <p>
+          Augmented Reality (AR) overlays digital content onto the real world, enhancing the user's
+          perception and interaction with their environment. It opens up possibilities for creating
+          immersive and interactive experiences.
+        </p>
+
+        <h2>Key Concepts</h2>
+        <ul>
+          <li>Understanding Augmented Reality vs. Virtual Reality</li>
+          <li>AR Applications in Various Industries</li>
+          <li>Marker-based vs. Markerless AR</li>
+          <li>Creating Interactive AR Experiences</li>
+          <li>Future Trends in Augmented Reality</li>
+        </ul>
+
+        <h2>Exploration Resources</h2>
+        <p>
+          Explore Augmented Reality further with the following resources:
+        </p>
+        <ul>
+          <li><a href="#">Introduction to Augmented Reality Technology</a></li>
+          <li><a href="#">Real-world Applications of AR in Industries</a></li>
+          <li><a href="#">Building Marker-based AR Experiences</a></li>
+          <li><a href="#">Creating Interactive AR Content</a></li>
+          <li><a href="#">Future Trends and Innovations in AR</a></li>
+        </ul>
+              </div>
+    </Layout>
+  );
+};
+
+export default AugmentedRealityLearningPage;

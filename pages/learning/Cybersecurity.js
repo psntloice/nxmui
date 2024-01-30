@@ -1,0 +1,46 @@
+import React from 'react';
+import Layout from '../components/Layout';
+import courses from '../../data/courses';
+
+const CybersecurityLearningPage = () => {
+  const courseId = 4;
+  const course = courses.find((c) => c.id === courseId)
+  return (
+    <Layout>
+      <div>
+        <img src={course.image} alt={course.imageText} style={{ width: '100%', height: 'auto' }} />
+        <h1>{course.title}</h1>
+        <p>{course.description}</p>
+        <h2>Introduction</h2>
+        <p>
+          Cybersecurity is the practice of protecting systems, networks, and programs from digital
+          attacks. It encompasses a wide range of measures to ensure the confidentiality, integrity,
+          and availability of information.
+        </p>
+
+        <h2>Key Concepts</h2>
+        <ul>
+          <li>Importance of Cybersecurity in Today's World</li>
+          <li>Cyber Threat Landscape</li>
+          <li>Common Cybersecurity Threats</li>
+          <li>Security Measures and Best Practices</li>
+          <li>Incident Response and Recovery</li>
+        </ul>
+
+        <h2>Exploration Resources</h2>
+        <p>
+          Explore Cybersecurity further with the following resources:
+        </p>
+        <ul>
+          <li><a href="#">Understanding Cybersecurity Fundamentals</a></li>
+          <li><a href="#">Securing Digital Assets from Threats</a></li>
+          <li><a href="#">Implementing Effective Security Measures</a></li>
+          <li><a href="#">Responding to Cybersecurity Incidents</a></li>
+          <li><a href="#">Stay Informed: Cybersecurity News and Updates</a></li>
+        </ul>
+              </div>
+    </Layout>
+  );
+};
+
+export default CybersecurityLearningPage;
