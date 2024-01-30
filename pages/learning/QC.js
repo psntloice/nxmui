@@ -8,8 +8,9 @@ const QuantumComputingLearningPage = () => {
   return (
     <Layout>
       <div>
-        <img src={course.image} alt={course.imageText} style={{ width: '100%', height: 'auto' }} />
-        <h1>{course.title}</h1>
+        {/* <img src={course.image} alt={course.imageText} style={{ width: '100%', height: 'auto' }} /> */}
+        <img src={course.image} alt={course.imageText.replace(/'/g, '&apos;')} style={{ width: '100%', height: 'auto' }} />
+<h1>{course.title}</h1>
         <p>{course.description}</p>
         <h2>Introduction</h2>
         <p>
