@@ -3,18 +3,17 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from './Header.js';
-import MainFeaturedPost from './MainFeaturedPost.js';
-import FeaturedPost from './FeaturedPost.js';
-import Sidebar from './Sidebar.js';
-import Footer from './Footer.js';
+import Header from './components/Header.js';
+import MainFeaturedPost from './components/MainFeaturedPost.js';
+import FeaturedPost from './components/FeaturedPost.js';
+import Sidebar from './components/Sidebar.js';
+import Footer from './components/Footer.js';
+import Layout from './components/Layout.js';
 
 // const sections = [
 //   { title: 'Technology', url: '#' },
@@ -86,18 +85,11 @@ const sidebar = {
 
 
 
-// Create a dark theme
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
 
 
 export default function Index() {
   return (
-<ThemeProvider theme={darkTheme}>
-        <CssBaseline />
+    <Layout>
       <Container maxWidth="lg">
         {/* <Header title="Key to Success" sections={sections} /> */}
         <Header title="Key to Success" sections="Learn with us" />
@@ -125,8 +117,8 @@ export default function Index() {
   description="Get in touch with us to learn more about Global University and its offerings. We're here to answer your questions."
 />
 
-    </ThemeProvider>
+    </Layout>
+
   );
-  
 }
 
