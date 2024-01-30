@@ -74,7 +74,8 @@ function LearningPage() {
   return (
     <Layout>
       <Container>
-        <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
+        {/* <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}> */}
+        <Toolbar>
           <Link href="/" passHref>
             <Button
               component="a"
@@ -103,29 +104,26 @@ function LearningPage() {
         >
           Courses offered
         </Typography>
-        <Divider sx={{ marginY: 2 }} />
 
+        <Paper
+          component="form"
+          elevation={0}
+          sx={{
+            p: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <InputBase
+            sx={{ ml: 1, flex: 1, backgroundColor: "#333" }}
+            placeholder="  Search courses"
+            inputProps={{ "aria-label": "search courses" }}
+          />
+          <SearchIcon sx={{ p: 2, marginLeft: 2, fontSize: "4rem" }} />
+        </Paper>
 
         <Paper elevation={0} style={{ padding: 16 }}>
-          <Paper
-            component="form"
-            elevation={0}
-            sx={{
-              p: 1,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: 'space-between',
-              width: 250,
-            }}
-          >
-            <InputBase
-              sx={{ ml: 1, flex: 1 }}
-              placeholder="Search courses"
-              inputProps={{ "aria-label": "search courses" }}
-            />
-            <SearchIcon sx={{ p: 2, marginLeft: 2 }} fontSize="large" />
-          </Paper>
-
           {lessons.map((lesson, index) => (
             <React.Fragment key={lesson.id}>
               <Paper elevation={0} style={{ padding: 16, marginBottom: 16 }}>
