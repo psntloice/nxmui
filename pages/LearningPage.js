@@ -142,7 +142,7 @@ function LearningPage() {
                     <Typography variant="body1" component="div">
                       {lesson.description}
                     </Typography>
-                    <Link href="#" passHref>
+                    <Link href={`/course/${lesson.id}`} passHref>
                       <Button variant="outlined" color="primary" size="small">
                         {lesson.linkText}
                       </Button>
