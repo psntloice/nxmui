@@ -10,7 +10,6 @@ const darkTheme = createTheme({
   });
 
 function Layout({ children }){
-// const Layout = ({ children }) => {
   return (
 <ThemeProvider theme={darkTheme}>
 <CssBaseline />
