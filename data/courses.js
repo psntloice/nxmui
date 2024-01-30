@@ -1,4 +1,4 @@
-const lessons = [
+const courses = [
     {
       id: 1,
       title: "Unraveling Quantum Computing",
@@ -55,4 +55,4 @@ const lessons = [
     },
   ];
 
-  export default lessons;
+  export default courses;
