@@ -8,12 +8,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
-import Header from './components/Header.js';
-import MainFeaturedPost from './components/MainFeaturedPost.js';
-import FeaturedPost from './components/FeaturedPost.js';
-import Sidebar from './components/Sidebar.js';
-import Footer from './components/Footer.js';
-import Layout from './components/Layout.js';
+import Header from '../components/Header.js';
+import MainFeaturedPost from '../components/MainFeaturedPost.js';
+import FeaturedPost from '../components/FeaturedPost.js';
+import Sidebar from '../components/Sidebar.js';
+import Footer from '../components/Footer.js';
+import Layout from '../components/Layout.js';
 
 // const sections = [
 //   { title: 'Technology', url: '#' },

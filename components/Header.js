@@ -24,7 +24,7 @@ function Header(props) {
           {title}
         </Typography>
 
-        <Link href="../LearningPage" passHref>
+        <Link href="../CoursesPage" passHref>
       <Button component="a" variant="outlined" size="small">
       Sign up
       </Button>

@@ -10,11 +10,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Divider from "@mui/material/Divider";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import Layout from "./components/Layout.js";
-import courses from "../data/courses";
+import Layout from "../components/Layout.js";
+import courses from "../data/courses.js";
 
 
-function LearningPage() {
+function CoursesPage() {
   return (
     <Layout>
       <Container>
@@ -87,7 +87,8 @@ function LearningPage() {
                       {course.description}
                     </Typography>
                     {/* <Link href={`/course/${course.id}`} passHref> */}
-                    <Link href={course.linkText.path} passHref>
+                    {/* <Link href={course.linkText.path} passHref> */}
+                    <Link href={`/LearningArea?courseId=${course.id}`} passHref>
                                             <Button variant="outlined" color="primary" size="small">
                                             {course.linkText.text}   
                                                                </Button>
@@ -104,4 +105,4 @@ function LearningPage() {
   );
 }
 
-export default LearningPage;
+export default CoursesPage;
