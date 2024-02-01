@@ -42,7 +42,7 @@ const courses = [
         "Uncover the interconnected world of IoT. Learn about smart devices, data connectivity, and the transformative impact of IoT on daily life and industries.",
       image: "https://source.unsplash.com/random?iot",
       imageText: "Internet of Things illustration",
-      linkText: { text: "Explore Internet of Things (IoT)", path: "/learning/IOT" },
+      linkText: { text: "Explore Internet of Things", path: "/learning/IOT" },
     },
     {
       id: 6,
@@ -51,7 +51,7 @@ const courses = [
         "Embark on an exciting journey into the realm of augmented reality. Discover AR applications, immersive experiences, and the future of interactive technology.",
       image: "https://source.unsplash.com/random?ar",
       imageText: "Augmented Reality illustration",
-      linkText: { text: "Explore Augmented Reality (AR)", path: "/learning/AR" },
+      linkText: { text: "Explore Augmented Reality", path: "/learning/AR" },
     },
   ];
 
