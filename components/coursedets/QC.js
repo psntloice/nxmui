@@ -98,9 +98,8 @@ const QC = () => {
               {/* Notes Section */}
            <NotesSection>
              <h2>Extra</h2>
-             <p>
-              
-             </p>
+                 <Link href="#" style={{ color: "inherit" }}>
+                 Take Tests                 </Link>
            </NotesSection>
          </MainContent>
        </Container>
