@@ -93,6 +93,7 @@ const QC = () => {
       [currentQuestion.correctAnswer]: { backgroundColor: 'green' },
       [selectedAnswer]: isCorrect ? { backgroundColor: 'green' } : { backgroundColor: 'red' },
     });
+ 
 
    // Move to the next question
    const nextQuestionIndex = currentQuestionIndex + 1;
@@ -101,14 +102,20 @@ const QC = () => {
 
    setProgress((answeredQuestions / totalQuestions) * 100);
 
-   if (nextQuestionIndex < totalQuestions) {
-     setCurrentQuestionIndex(nextQuestionIndex);
-     setAnswerSubmitted(false);
-     setSelectedAnswer(null);
-   } else {
-     // All questions answered, close the dialog
-     handleCloseDialog();
-   }
+  if (nextQuestionIndex < totalQuestions) {
+   // setFeedbackStyle({});
+    setCurrentQuestionIndex(nextQuestionIndex);
+    setAnswerSubmitted(false);
+    setSelectedAnswer(null);
+// Reset feedback styles after a delay (e.g., 1000 milliseconds)
+setTimeout(() => {
+  setFeedbackStyle({});
+}, 1000);  } else {
+    
+    // All questions answered, close the dialog
+    setFeedbackStyle({});
+    handleCloseDialog();
+  }
   };
 
   const CircularProgressWithLabel = (props) => {
