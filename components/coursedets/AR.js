@@ -55,7 +55,7 @@ const AR = () => {
            {/* Sections */}
            <Section title="Introduction to Augmented Reality">
            <p>
-          Augmented Reality (AR) overlays digital content onto the real world, enhancing the user's
+          Augmented Reality overlays digital content onto the real world, enhancing the user's
           perception and interaction with their environment. It opens up possibilities for creating
           immersive and interactive experiences.
         </p>

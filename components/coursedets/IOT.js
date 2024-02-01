@@ -53,7 +53,7 @@ Future                </Link>
            {/* Sections */}
            <Section title="Introduction to  IOT">
            <p>
-          The Internet of Things (IoT) refers to the network of interconnected devices that communicate
+          The Internet of Things refers to the network of interconnected devices that communicate
           and share data. It has become a transformative force, influencing various aspects of our lives
           and industries.
         </p>
