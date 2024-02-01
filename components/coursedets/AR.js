@@ -45,12 +45,12 @@ const AR = () => {
           {/* Main Content Area */}
           <MainContent>
             {/* Course Title and Image */}
-            <ImageContainer>
+            {/* <ImageContainer>
               <Image
                src={course.image}
                alt={course.imageText.replace(/'/g, "&apos;")}
              />
-           </ImageContainer>
+           </ImageContainer> */}
  
            {/* Sections */}
            <Section title="Introduction to Augmented Reality">
