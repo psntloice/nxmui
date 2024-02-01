@@ -83,16 +83,16 @@ const QC = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswerSubmitted, setAnswerSubmitted] = useState(false);
 
+  const [feedbackStyle, setFeedbackStyle] = useState({});
   const handleAnswerSubmit = () => {
     const currentQuestion = questions[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
 
-    // Provide feedback to the user
-    if (isCorrect) {
-      alert("Correct! Great job!");
-    } else {
-      alert("Incorrect. Please try again.");
-    }
+    setFeedbackStyle({
+      ...feedbackStyle,
+      [currentQuestion.correctAnswer]: { backgroundColor: 'green' },
+      [selectedAnswer]: isCorrect ? { backgroundColor: 'green' } : { backgroundColor: 'red' },
+    });
 
    // Move to the next question
    const nextQuestionIndex = currentQuestionIndex + 1;
@@ -230,6 +230,7 @@ const QC = () => {
                                   <Button variant="contained" onClick={handleOpenDialog}>Take Tests</Button>
        {/* Dialog for taking tests */}
        <Dialog open={isDialogOpen} onClose={handleCloseDialog} maxWidth="md" fullWidth>
+        
               <LinearProgress variant="determinate" value={progress} />
               <div style={{ padding: '16px' }}>
                 <h2>Take Your Test</h2>               
@@ -238,8 +239,7 @@ const QC = () => {
                  <p>{currentQuestionIndex + 1}. <strong>{questions[currentQuestionIndex].question}</strong></p>
                 <ul>
                   {questions[currentQuestionIndex].options.map((option) => (
-                    <li key={option.id}>
-                      <label>
+                    <li key={option.id} style={feedbackStyle[option.id]}>                      <label>
                         <input
                           type="radio"
                           value={option.id}
