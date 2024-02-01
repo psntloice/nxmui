@@ -1,12 +1,138 @@
-import React from "react";
+import React, { useState } from "react";
 import courses from "../../data/courses";
 import { Link, Container, Sidebar, SidebarList, SidebarListItem, MainContent, NotesSection, ImageContainer, Image } from '../../styles/sharedStyleLA';
+import Dialog from "@mui/material/Dialog";
+import LinearProgress from "@mui/material/LinearProgress";
+import CircularProgress from '@mui/material/CircularProgress';
+import { Button } from "@mui/material";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const QC = () => {
   const courseId = 1;
   const course = courses.find((c) => c.id === courseId); 
 
-  return (
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const questions = [
+    {
+      question: "What is a qubit in quantum computing?",
+      options: [
+        { id: "A", text: "A classical bit that can exist in two states (0 or 1) simultaneously." },
+        { id: "B", text: "A unit of classical information used in quantum circuits." },
+        { id: "C", text: "A quantum bit that can exist in multiple states simultaneously." },
+        { id: "D", text: "A unit of information in classical computers." },
+      ],
+      correctAnswer: "C",
+    },
+    {
+      question: "What is superposition in quantum mechanics?",
+      options: [
+        { id: "A", text: "A state where a qubit can exist in multiple states at the same time." },
+        { id: "B", text: "A classical computing concept." },
+        { id: "C", text: "The principle of uncertainty." },
+        { id: "D", text: "A state where a qubit is fixed in a single state." },
+      ],
+      correctAnswer: "A",
+    },
+    {
+      question: "What is entanglement in quantum computing?",
+      options: [
+        { id: "A", text: "A classical computing principle." },
+        { id: "B", text: "A state where qubits are not connected." },
+        { id: "C", text: "A state where qubits are correlated and share information." },
+        { id: "D", text: "A state where qubits are in isolation." },
+      ],
+      correctAnswer: "C",
+    },
+    {
+      question: "What are quantum gates used for?",
+      options: [
+        { id: "A", text: "To control classical bits." },
+        { id: "B", text: "To control quantum bits (qubits)." },
+        { id: "C", text: "To measure quantum bits." },
+        { id: "D", text: "To perform classical computations." },
+      ],
+      correctAnswer: "B",
+    },
+    {
+      question: "What are the challenges in quantum computing?",
+      options: [
+        { id: "A", text: "Limited qubit stability." },
+        { id: "B", text: "Inability to perform complex calculations." },
+        { id: "C", text: "Lack of interest in the scientific community." },
+        { id: "D", text: "Compatibility with classical computers." },
+      ],
+      correctAnswer: "A",
+    },
+  ];
+
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const handleOpenDialog = () => {
+    setDialogOpen(true);
+    setProgress(0);
+  };
+
+  const handleCloseDialog = () => {
+    setDialogOpen(false);
+    setAnswerSubmitted(false);
+    setSelectedAnswer(null);
+  };
+
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isAnswerSubmitted, setAnswerSubmitted] = useState(false);
+
+  const handleAnswerSubmit = () => {
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
+
+    // Provide feedback to the user
+    if (isCorrect) {
+      alert("Correct! Great job!");
+    } else {
+      alert("Incorrect. Please try again.");
+    }
+
+   // Move to the next question
+   const nextQuestionIndex = currentQuestionIndex + 1;
+   const answeredQuestions = nextQuestionIndex;
+   const totalQuestions = questions.length;
+
+   setProgress((answeredQuestions / totalQuestions) * 100);
+
+   if (nextQuestionIndex < totalQuestions) {
+     setCurrentQuestionIndex(nextQuestionIndex);
+     setAnswerSubmitted(false);
+     setSelectedAnswer(null);
+   } else {
+     // All questions answered, close the dialog
+     handleCloseDialog();
+   }
+  };
+
+  const CircularProgressWithLabel = (props) => {
+    return (
+      <Box position="relative" display="inline-flex">
+        <CircularProgress variant="determinate" {...props} />
+        <Box
+          top={0}
+          left={0}
+          bottom={0}
+          right={0}
+          position="absolute"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Typography variant="caption" component="div" color="textSecondary">
+            {`${Math.round(props.value)}%`}
+          </Typography>
+        </Box>
+      </Box>
+    );
+  };
+   return (
     <>
     <Container>
    {/* Sidebar */}
@@ -98,8 +224,43 @@ const QC = () => {
               {/* Notes Section */}
            <NotesSection>
              <h2>Extra</h2>
-                 <Link href="#" style={{ color: "inherit" }}>
-                 Take Tests                 </Link>
+             <p>
+             <CircularProgressWithLabel variant="determinate" value={progress}  />
+             </p>
+                                  <Button variant="contained" onClick={handleOpenDialog}>Take Tests</Button>
+       {/* Dialog for taking tests */}
+       <Dialog open={isDialogOpen} onClose={handleCloseDialog} maxWidth="md" fullWidth>
+              <LinearProgress variant="determinate" value={progress} />
+              <div style={{ padding: '16px' }}>
+                <h2>Take Your Test</h2>               
+
+                 {/* Render the current question and answer choices */}
+                 <p>{currentQuestionIndex + 1}. <strong>{questions[currentQuestionIndex].question}</strong></p>
+                <ul>
+                  {questions[currentQuestionIndex].options.map((option) => (
+                    <li key={option.id}>
+                      <label>
+                        <input
+                          type="radio"
+                          value={option.id}
+                          checked={selectedAnswer === option.id}
+                          onChange={() => setSelectedAnswer(option.id)}
+                          disabled={isAnswerSubmitted}
+                        />
+                        {option.text}
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+
+              {/* Add logic to handle user's response */}
+ <button onClick={handleAnswerSubmit} disabled={isAnswerSubmitted}>
+                  {currentQuestionIndex < questions.length - 1 ? "Next Question" : "Finish"}
+                </button>
+              </div>
+            </Dialog>
+
+                
            </NotesSection>
          </MainContent>
        </Container>
