@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-// import React from "react";
+// import React, { useState, useEffect } from "react";
+import React from "react";
 import courses from "../../data/courses";
 import { Link, Container, Sidebar, SidebarList, SidebarListItem, MainContent, NotesSection, ImageContainer, Image } from '../../styles/sharedStyleLA';
 
 const BC = () => {
-  const [isFixed, setIsFixed] = useState(false);
+  // const [isFixed, setIsFixed] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const threshold = 100; // Adjust this threshold as needed
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollY = window.scrollY;
+  //     const threshold = 100; // Adjust this threshold as needed
 
-      setIsFixed(scrollY > threshold);
-    };
+  //     setIsFixed(scrollY > threshold);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
       const courseId = 3;
   const course = courses.find((c) => c.id === courseId); 

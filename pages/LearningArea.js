@@ -9,8 +9,12 @@ const LearningArea = () => {
 
   // Dynamically import the component based on courseId
   const CourseDetailComponents = {
-    2: React.lazy(() => import("../components/coursedets/IOT")),
+    1: React.lazy(() => import("../components/coursedets/QC")),
+    2: React.lazy(() => import("../components/coursedets/AI")),
     3: React.lazy(() => import("../components/coursedets/BC")),
+    4: React.lazy(() => import("../components/coursedets/CS")),
+    5: React.lazy(() => import("../components/coursedets/IOT")),
+    6: React.lazy(() => import("../components/coursedets/AR")),
     // Add more components as needed
   };
 
